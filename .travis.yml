@@ -50,3 +50,8 @@ script:
   - docker ps --all
   - ./scripts/travis/wait_for_containers.sh
   - docker exec -it netapi_app ./scripts/travis/test_runner.sh networkapi/plugins/SDN/ODL/tests/test_generic_odl_plugin.py:GenericOpenDayLightTestCaseSuccess.test_add_a_list_of_acls_in_one_request
+  
+after_failure:
+  - docker exec -it ovs1 ovs-vsctl show
+  - docker exec -it ovs1 ovs-vsctl -v add-br br1
+  - docker exec -it netapi_odl tail -100 /opt/opendaylight/data/log/karaf.log
