@@ -17,33 +17,15 @@ sudo: required
 services:
   - docker
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.11.2
-
 before_install:
   # Disable services enabled by default
   # http://docs.travis-ci.com/user/database-setup/#MySQL
   - sudo /etc/init.d/mysql stop
-  - sudo apt-get update
-  # Docker
-  - sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
-  - sudo apt-get update
-  - sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo apt-key fingerprint 0EBFCD88
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  
 
 install:
-  #- curl -sSL https://get.docker.com/ | sudo sh
-  - sudo apt-get update
-  - sudo apt-get install docker-ce
-  - sudo pip install docker-compose
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-
+  - docker version
+  - docker-compose --version
+  
 script:
   - sudo docker-compose up -d
   - sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
