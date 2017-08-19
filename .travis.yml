@@ -14,8 +14,6 @@ branches:
 
 sudo: required
 
-dist: precise
-
 services:
   - docker
 
@@ -27,9 +25,19 @@ before_install:
   # http://docs.travis-ci.com/user/database-setup/#MySQL
   - sudo /etc/init.d/mysql stop
   - sudo apt-get update
+  # Docker
+  - sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+  - sudo apt-get update
+  - sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo apt-key fingerprint 0EBFCD88
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  
 
 install:
   #- curl -sSL https://get.docker.com/ | sudo sh
+  - sudo apt-get update
+  - sudo apt-get install docker-ce
   - sudo pip install docker-compose
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
@@ -37,7 +45,6 @@ install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - sleep 20
   - sudo docker-compose up -d
   - sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
   - docker ps --all
