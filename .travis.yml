@@ -10,6 +10,7 @@ branches:
   only:
     - master
     - develop
+    - develop_travis
 
 sudo: required
 
