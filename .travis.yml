@@ -37,6 +37,7 @@ install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
+  - sleep 20
   - sudo docker-compose up -d
   - sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
   - docker ps --all
