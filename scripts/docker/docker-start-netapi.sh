@@ -1,5 +1,5 @@
 # Waits for other containers availability
-sleep 25
+sleep 35
 
 # DB
 mysql -u root -h netapi_db -e 'DROP DATABASE IF EXISTS networkapi;'
