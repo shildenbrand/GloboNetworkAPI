@@ -54,4 +54,8 @@ script:
 after_failure:
   - docker exec -it ovs1 ovs-vsctl show
   - docker exec -it ovs1 ovs-vsctl -v add-br br1
+  - docker exec -it ovs2 ovs-vsctl show
+  - docker exec -it ovs2 ovs-vsctl -v add-br br1
+  - docker exec -it ovs3 ovs-vsctl show
+  - docker exec -it ovs3 ovs-vsctl -v add-br br1
   - docker exec -it netapi_odl tail -100 /opt/opendaylight/data/log/karaf.log
