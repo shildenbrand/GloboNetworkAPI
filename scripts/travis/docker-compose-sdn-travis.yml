@@ -20,7 +20,7 @@ services:
         volumes:
             - /lib/modules:/lib/modules:rw
             - ../docker/docker-start-openvswitch.sh:/docker-start-openvswitch.sh:ro
-        command: 'modprobe openvswitch; sh docker-start-openvswitch.sh'
+        command: sh -c "modprobe openvswitch; sh docker-start-openvswitch.sh"
         cap_add:
             - NET_ADMIN
             - SYS_MODULE
@@ -36,7 +36,7 @@ services:
         volumes:
             - /lib/modules:/lib/modules:rw
             - ../docker/docker-start-openvswitch.sh:/docker-start-openvswitch.sh:ro
-        command: 'modprobe openvswitch; sh docker-start-openvswitch.sh'
+        command: sh -c "modprobe openvswitch; sh docker-start-openvswitch.sh"
         cap_add:
             - NET_ADMIN
         networks:
