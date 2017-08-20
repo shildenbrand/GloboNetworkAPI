@@ -19,7 +19,7 @@ REMOTE_CTRL=$(nslookup netapi_odl | grep Address | tail -1 | awk '{print $2}')
 mysql -uroot -h netapi_db -b networkapi -e "INSERT into equiptos_access (id_equiptos_access, user, pass, id_equip, fqdn, id_tipo_acesso) values (1, 'admin', 'admin',  10, 'http://${REMOTE_CTRL}:8181', 1);"
 mysql -uroot -h netapi_db -b networkapi -e "UPDATE equiptos_access SET fqdn = 'http://${REMOTE_CTRL}:8181' WHERE id_equiptos_access = 1;"
 
-echo "controller is on > $REMOTE_CTRL <"
+echo "$REMOTE_CTRL  odl.controller" >> /etc/hosts
 
 echo -e "PYTHONPATH=\"/netapi/networkapi:/netapi/$PYTHONPATH\"" >> /etc/environment
 
