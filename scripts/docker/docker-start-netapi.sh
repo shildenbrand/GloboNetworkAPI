@@ -1,13 +1,13 @@
 export IAMREADY=0
 
 # Waits for other containers availability
-sleep 25
+sleep 15
 
 # DB
 mysql -u root -h netapi_db -e 'DROP DATABASE IF EXISTS networkapi;'
-sleep 5
+sleep 15
 mysql -u root -h netapi_db -e 'CREATE DATABASE IF NOT EXISTS networkapi;'
-sleep 5
+sleep 15
 cd /netapi/dbmigrate; db-migrate --show-sql
 mysql -u root -h netapi_db networkapi < /netapi/dev/load_example_environment.sql
 
@@ -15,7 +15,7 @@ mysql -u root -h netapi_db networkapi < /netapi/dev/load_example_environment.sql
 REMOTE_CTRL=$(nslookup netapi_odl | grep Address | tail -1 | awk '{print $2}')
 mysql -uroot -h netapi_db -b networkapi -e "UPDATE equiptos_access SET fqdn = 'http://${REMOTE_CTRL}:8181' WHERE id_equiptos_access = 1;"
 
-echo "controller is on $REMOTE_CTRL"
+echo "controller is on > $REMOTE_CTRL <"
 
 echo -e "PYTHONPATH=\"/netapi/networkapi:/netapi/$PYTHONPATH\"" >> /etc/environment
 
