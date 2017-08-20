@@ -28,16 +28,16 @@ install:
   
 script:
   - docker network create globonetworkapi_netapi_net
-  - sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
-  - sudo docker-compose up -d
   #- sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
+  - sudo docker-compose --file docker-compose-sdn.yml up -d
+  - sudo docker-compose up -d
   - sleep 5
   - docker ps --all
   - ./scripts/travis/wait_for_containers.sh
   - docker exec -it netapi_app ./scripts/travis/test_runner.sh networkapi/plugins/SDN/ODL/
   
 after_failure:
-  - netstat -ntal
-  - docker ps
+  - docker exec ovs1 ovs-vsctl show
+  - docker ps --all
   - docker exec netapi_app tail /tmp/networkapi.log
   - ping netapi_odl -c 1
