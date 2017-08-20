@@ -21,11 +21,12 @@ for i in $(seq 1  ${MAX_RETRY}); do
     fi
 
     API_READY=$(docker exec netapi_app echo $IAMREADY)
-    if [ "$ODL_READY" -eq "1" ]; then
+    if [ "$API_READY" -eq "1" ]; then
         echo "API is ready";
     fi
     
-    if [ "$ODL_READY" -eq "1" ] && [ "$API_READY" -eq "1" ]; then
+    if [ "$ODL_READY" -eq "1" ] && [ "$API_READY" -eq "1" ]
+    then
         echo "Going on with the tests";
         break;
     fi
