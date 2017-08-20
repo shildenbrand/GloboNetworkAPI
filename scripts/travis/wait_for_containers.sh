@@ -7,7 +7,6 @@ MAX_RETRY=30
 SLEEP_TIME=10
 
 ODL_READY=0
-API_READY=0
 
 for i in $(seq 1  ${MAX_RETRY}); do
     
@@ -16,19 +15,6 @@ for i in $(seq 1  ${MAX_RETRY}); do
 
     # If the port is open we continue with the script
     if [ "$?" -eq "0" ]; then
-        echo "ODL server is ready";
-        ODL_READY=1;
-    fi
-
-    API_READY=$(docker exec netapi_app bash -c "echo IAMREADY")
-    echo $API_READY
-    if [ "$API_READY" -eq "1" ]; then
-        echo "API is ready";
-    fi
-    
-    if [ "$ODL_READY" -eq "1" ] && [ "$API_READY" -eq "1" ]
-    then
-        echo "Going on with the tests";
         break;
     fi
     
@@ -41,4 +27,4 @@ for i in $(seq 1  ${MAX_RETRY}); do
     echo "Retrying ${i}.."
 done
 
-
+echo "ODL server is ready";
