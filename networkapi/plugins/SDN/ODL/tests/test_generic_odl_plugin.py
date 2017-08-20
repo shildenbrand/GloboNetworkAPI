@@ -29,8 +29,8 @@ class GenericOpenDayLightTestCaseSuccess(NetworkApiTestCase):
     json_odl_output_path = 'plugins/SDN/ODL/json/odl_output/%s'
 
     def setUp(self):
-        self.equipment = Equipamento.objects.filter(id=10)[0]
-        self.equipment_access = EquipamentoAcesso.objects.filter(id=1)[0]
+        self.equipment = Equipamento.objects.filter(id=10).uniqueResult()
+        self.equipment_access = EquipamentoAcesso.objects.filter(id=1).uniqueResult()
         self.utils.set_controller_endpoint(self.equipment_access)
 
         self.odl = ODLPlugin(
