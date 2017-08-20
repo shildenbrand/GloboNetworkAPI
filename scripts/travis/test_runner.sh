@@ -1,5 +1,4 @@
 #!/bin/bash
-sleep 20
 echo "exporting NETWORKAPI_DEBUG"
 export NETWORKAPI_DEBUG='DEBUG'
 
