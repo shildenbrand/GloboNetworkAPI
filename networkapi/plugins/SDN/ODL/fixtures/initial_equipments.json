@@ -54,25 +54,6 @@
   },
   {
     "pk": 1,
-    "model": "tipoacesso.tipoacesso",
-    "fields": {
-      "protocolo": "http"
-    }
-  },
-  {
-    "pk": 1,
-    "model": "equipamento.equipamentoacesso",
-    "fields": {
-      "equipamento": 10,
-      "fqdn": "http://172.19.0.2:8181",
-      "user": "admin",
-      "password": "admin",
-      "tipo_acesso": 1,
-      "enable_pass": "---"
-    }
-  },
-  {
-    "pk": 1,
     "model": "ip.ip",
     "fields": {
         "oct4": 42,
