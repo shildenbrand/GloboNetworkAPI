@@ -1,5 +1,3 @@
-export IAMREADY=0
-
 # Waits for other containers availability
 sleep 15
 
@@ -49,5 +47,3 @@ echo "starting gunicorn"
 
 touch /tmp/gunicorn-networkapi_error.log
 tail -f /tmp/gunicorn-networkapi_error.log
-
-export IAMREADY=1
