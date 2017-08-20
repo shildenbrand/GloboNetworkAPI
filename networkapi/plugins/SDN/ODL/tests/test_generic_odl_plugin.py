@@ -357,6 +357,11 @@ class GenericOpenDayLightTestCaseSuccess(NetworkApiTestCase):
         self.assertEqual(type(self.odl._get_nodes_ids()), type([]))
 
     def test_get_nodes_ids_empty(self):
+        """Test get nodes should return all 3 ovs"""
+
+        self.assertEqual(len(self.odl._get_nodes_ids()), 3)
+                         
+    def test_get_nodes_ids_empty(self):
         """Test get nodes with a empty result"""
 
         def fake_method(**kwargs):
