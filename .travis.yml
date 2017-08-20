@@ -27,7 +27,8 @@ install:
   - docker-compose --version
   
 script:
-  - sudo docker-compose --file docker-compose-sdn.yml up -d
+  - docker network create globonetworkapi_netapi_net
+  - sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
   - sudo docker-compose up -d
   #- sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
   - sleep 5
