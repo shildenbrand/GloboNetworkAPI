@@ -37,5 +37,5 @@ script:
 after_failure:
   - netstat -ntal
   - docker ps
-  - docker logs netapi_app
-  - docker logs netapi_db
+  - docker exec netapi_app tail /tmp/networkapi.log
+  - ping netapi_odl -c 1
