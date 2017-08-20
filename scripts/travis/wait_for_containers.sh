@@ -21,6 +21,7 @@ for i in $(seq 1  ${MAX_RETRY}); do
     fi
 
     API_READY=$(docker exec netapi_app echo $IAMREADY)
+    echo $API_READY
     if [ "$API_READY" -eq "1" ]; then
         echo "API is ready";
     fi
