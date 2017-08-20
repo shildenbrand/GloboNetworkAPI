@@ -27,8 +27,9 @@ install:
   - docker-compose --version
   
 script:
+  - sudo docker-compose --file docker-compose-sdn.yml up -d
   - sudo docker-compose up -d
-  - sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
+  #- sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
   - sleep 5
   - docker ps --all
   - ./scripts/travis/wait_for_containers.sh
