@@ -4,11 +4,16 @@ export IAMREADY=0
 sleep 15
 
 # DB
-mysql -u root -h netapi_db -e 'DROP DATABASE IF EXISTS networkapi;'
-sleep 15
+while true; do
+  mysql -u root -h netapi_db -e 'DROP DATABASE IF EXISTS networkapi;'
+  if [ "$?" -eq "0" ]; then
+    break;
+  fi
+done
+  
 mysql -u root -h netapi_db -e 'CREATE DATABASE IF NOT EXISTS networkapi;'
-sleep 15
-cd /netapi/dbmigrate; db-migrate --show-sql
+
+cd /netapi/dbmigrate; db-migrate --show-sql 
 mysql -u root -h netapi_db networkapi < /netapi/dev/load_example_environment.sql
 
 # Updates the SDN controller ip address
