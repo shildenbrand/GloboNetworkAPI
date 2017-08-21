@@ -355,6 +355,7 @@ class GenericOpenDayLightTestCaseSuccess(NetworkApiTestCase):
         """Test get nodes ids"""
 
         self.assertEqual(type(self.odl._get_nodes_ids()), type([]))
+        self.assertEqual(len(self.odl._get_nodes_ids()), 3)
 
     def test_get_nodes_ids_empty(self):
         """Test get nodes should return all 3 ovs"""

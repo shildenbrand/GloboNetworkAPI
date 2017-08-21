@@ -14,18 +14,16 @@ branches:
 
 sudo: required
 
+dist: trusty
+
 services:
   - docker
 
 before_install:
   # Disable services enabled by default
   # http://docs.travis-ci.com/user/database-setup/#MySQL
-   - sudo /etc/init.d/mysql stop
+  - sudo /etc/init.d/mysql stop
 
-install:
-  - docker version
-  - docker-compose --version
-  
 script:
   - docker network create globonetworkapi_netapi_net
   - sudo docker-compose --file scripts/travis/docker-compose-sdn-travis.yml up -d
@@ -33,7 +31,7 @@ script:
   - sleep 5
   - docker ps --all
   - ./scripts/travis/wait_for_containers.sh
-  - docker exec -it netapi_app ./scripts/travis/test_runner.sh networkapi/plugins/SDN/ODL/
+  - docker exec -it netapi_app ./scripts/travis/test_runner.sh
   
 after_failure:
   - docker exec ovs1 ovs-vsctl show
