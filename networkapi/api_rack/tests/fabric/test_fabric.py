@@ -72,20 +72,20 @@ class FabricGetTest(NetworkApiTestCase):
         self.compare_status(200, response.status_code)
         self.compare_json(expected_file, response.data)
 
-    """
-    def test_getfabricbyname(self):
-        """Test of success to get a fabric by name."""
 
-        expected_file = 'api_rack/tests/fabric/json/get_fabric.json'
-        uri = '/api/dcrooms/name/%s' % "FabricTest"
+    # def test_getfabricbyname(self):
+    #     """Test of success to get a fabric by name."""
+    #
+    #     expected_file = 'api_rack/tests/fabric/json/get_fabric.json'
+    #     uri = '/api/dcrooms/name/%s' % "FabricTest"
+    #
+    #     response = self.client.get(uri,
+    #                                content_type='application/json',
+    #                                HTTP_AUTHORIZATION=self.get_http_authorization('test'))
+    #
+    #     self.compare_status(200, response.status_code)
+    #     self.compare_json(expected_file, response.data)
 
-        response = self.client.get(uri,
-                                   content_type='application/json',
-                                   HTTP_AUTHORIZATION=self.get_http_authorization('test'))
-
-        self.compare_status(200, response.status_code)
-        self.compare_json(expected_file, response.data)
-    """
 
 class FabricPostTest(NetworkApiTestCase):
 
