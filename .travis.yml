@@ -12,6 +12,10 @@ branches:
     - develop
     - develop_travis
 
+env:
+  - TESTFOLDER=networkapi/plugins/SDN/ODL/
+  - TESTFOLDER=networkapi/api_rack/
+
 sudo: required
 
 dist: trusty
