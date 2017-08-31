@@ -13,61 +13,11 @@ branches:
     - develop_travis
 
 env:
-  - TESTFOLDER=networkapi/ACLS/
-  - TESTFOLDER=networkapi/acl/
-  - TESTFOLDER=networkapi/ambiente/
-  - TESTFOLDER=networkapi/api_deploy/
-  - TESTFOLDER=networkapi/api_environment/
-  - TESTFOLDER=networkapi/api_environment_vip/
-  - TESTFOLDER=networkapi/api_equipment/
-  - TESTFOLDER=networkapi/api_filter/
-  - TESTFOLDER=networkapi/api_group/
-  - TESTFOLDER=networkapi/api_healthcheck/
-  - TESTFOLDER=networkapi/api_interface/
-  - TESTFOLDER=networkapi/api_ip/
-  - TESTFOLDER=networkapi/api_network/
-  - TESTFOLDER=networkapi/api_ogp/
-  - TESTFOLDER=networkapi/api_pools/
-  - TESTFOLDER=networkapi/api_rack/
-  - TESTFOLDER=networkapi/api_rest/
-  - TESTFOLDER=networkapi/api_task/
-  - TESTFOLDER=networkapi/api_usuario/
-  - TESTFOLDER=networkapi/api_vip_request/
-  - TESTFOLDER=networkapi/api_vlan/
-  - TESTFOLDER=networkapi/api_vrf/
-  - TESTFOLDER=networkapi/auth/
-  - TESTFOLDER=networkapi/blockrules/
-  - TESTFOLDER=networkapi/check/
-  - TESTFOLDER=networkapi/config/
-  - TESTFOLDER=networkapi/config_templates/
-  - TESTFOLDER=networkapi/distributedlock/
-  - TESTFOLDER=networkapi/equipamento/
-  - TESTFOLDER=networkapi/eventlog/
-  - TESTFOLDER=networkapi/extra_logging/
-  - TESTFOLDER=networkapi/filter/
-  - TESTFOLDER=networkapi/filterequiptype/
-  - TESTFOLDER=networkapi/generated_config/
-  - TESTFOLDER=networkapi/grupo/
-  - TESTFOLDER=networkapi/grupovirtual/
-  - TESTFOLDER=networkapi/healthcheckexpect/
-  - TESTFOLDER=networkapi/infrastructure/
-  - TESTFOLDER=networkapi/interface/
-  - TESTFOLDER=networkapi/ip/
-  - TESTFOLDER=networkapi/models/
-  - TESTFOLDER=networkapi/plugins/
-  - TESTFOLDER=networkapi/queue_tools/
-  - TESTFOLDER=networkapi/rack/
-  - TESTFOLDER=networkapi/requisicaovips/
-  - TESTFOLDER=networkapi/roteiro/
-  - TESTFOLDER=networkapi/semaforo/
-  - TESTFOLDER=networkapi/snippets/
-  - TESTFOLDER=networkapi/system/
-  - TESTFOLDER=networkapi/templates/
-  - TESTFOLDER=networkapi/test/
-  - TESTFOLDER=networkapi/tipoacesso/
-  - TESTFOLDER=networkapi/usuario/
-  - TESTFOLDER=networkapi/util/
-  - TESTFOLDER=networkapi/vlan/
+  - TESTFOLDERS='networkapi/ACLS/ networkapi/acl/ networkapi/ambiente/ networkapi/api_deploy/ networkapi/api_environment/ networkapi/api_environment_vip/ networkapi/api_equipment/ networkapi/api_filter/ networkapi/api_group/ networkapi/api_healthcheck/ networkapi/api_interface/'
+  - TESTFOLDERS='networkapi/api_ip/ networkapi/api_network/ networkapi/api_ogp/ networkapi/api_pools/ networkapi/api_rack/ networkapi/api_rest/ networkapi/api_task/ networkapi/api_usuario/ networkapi/api_vip_request/ networkapi/api_vlan/ networkapi/api_vrf/'
+  - TESTFOLDERS='networkapi/auth/ networkapi/block rules/ networkapi/check/ networkapi/config/ networkapi/config_templates/ networkapi/distributedlock/ networkapi/equipamento/ networkapi/eventlog/ networkapi/extra_logging/ networkapi/filter/ networkapi/filterequiptype/'
+  - TESTFOLDERS='networkapi/generated_config/ networkapi/grupo/ networkapi/grupovirtual/ networkapi/healthcheckexpect/ networkapi/infrastructure/ networkapi/interface/ networkapi/ip/ networkapi/models/ networkapi/plugins/ networkapi/queue_tools/ networkapi/rack/'
+  - TESTFOLDERS='networkapi/requisicaovips/ networkapi/roteiro/ networkapi/semaforo/ networkapi/snippets/ networkapi/system/ networkapi/templates/ networkapi/test/ networkapi/tipoacesso/ networkapi/usuario/ networkapi/util/ networkapi/vlan/'
 
 sudo: required
 
