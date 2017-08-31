@@ -38,7 +38,7 @@ script:
   - sleep 5
   - docker ps --all
   - ./scripts/travis/wait_for_containers.sh
-  - docker exec -it netapi_app ./scripts/travis/test_runner.sh $TESTFOLDER
+  - docker exec -it netapi_app ./scripts/travis/test_runner.sh $TESTFOLDERS
   
 after_failure:
   - docker exec ovs1 ovs-vsctl show
