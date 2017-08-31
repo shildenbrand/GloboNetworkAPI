@@ -15,7 +15,7 @@ branches:
 env:
   - TESTFOLDERS='networkapi/ACLS/ networkapi/acl/ networkapi/ambiente/ networkapi/api_deploy/ networkapi/api_environment/ networkapi/api_environment_vip/ networkapi/api_equipment/ networkapi/api_filter/ networkapi/api_group/ networkapi/api_healthcheck/ networkapi/api_interface/'
   - TESTFOLDERS='networkapi/api_ip/ networkapi/api_network/ networkapi/api_ogp/ networkapi/api_pools/ networkapi/api_rack/ networkapi/api_rest/ networkapi/api_task/ networkapi/api_usuario/ networkapi/api_vip_request/ networkapi/api_vlan/ networkapi/api_vrf/'
-  - TESTFOLDERS='networkapi/auth/ networkapi/block rules/ networkapi/check/ networkapi/config/ networkapi/config_templates/ networkapi/distributedlock/ networkapi/equipamento/ networkapi/eventlog/ networkapi/extra_logging/ networkapi/filter/ networkapi/filterequiptype/'
+  - TESTFOLDERS='networkapi/auth/ networkapi/blockrules/ networkapi/check/ networkapi/config/ networkapi/config_templates/ networkapi/distributedlock/ networkapi/equipamento/ networkapi/eventlog/ networkapi/extra_logging/ networkapi/filter/ networkapi/filterequiptype/'
   - TESTFOLDERS='networkapi/generated_config/ networkapi/grupo/ networkapi/grupovirtual/ networkapi/healthcheckexpect/ networkapi/infrastructure/ networkapi/interface/ networkapi/ip/ networkapi/models/ networkapi/plugins/ networkapi/queue_tools/ networkapi/rack/'
   - TESTFOLDERS='networkapi/requisicaovips/ networkapi/roteiro/ networkapi/semaforo/ networkapi/snippets/ networkapi/system/ networkapi/templates/ networkapi/test/ networkapi/tipoacesso/ networkapi/usuario/ networkapi/util/ networkapi/vlan/'
 
