@@ -15,7 +15,7 @@ branches:
 env:
   - TESTFOLDERS='api_network'
   - TESTFOLDERS='api_pools'
-  - TESTFOLDERS='plugins'
+  - TESTFOLDERS='ip plugins'
   - TESTFOLDERS='api_environment_vip api_equipment api_ip'
   - TESTFOLDERS='api_environment api_rack api_vip_request api_vlan equipamento requisicaovips system usuario'
 
