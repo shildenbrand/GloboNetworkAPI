@@ -13,11 +13,11 @@ branches:
     - develop_travis
 
 env:
-  - TESTFOLDERS='api_network'
-  - TESTFOLDERS='api_pools'
-  - TESTFOLDERS='ip plugins'
-  - TESTFOLDERS='api_environment_vip api_equipment api_ip'
-  - TESTFOLDERS='api_environment api_rack api_vip_request api_vlan equipamento requisicaovips system usuario'
+  - TESTFOLDERS='networkapi/api_network'
+  - TESTFOLDERS='networkapi/api_pools'
+  - TESTFOLDERS='networkapi/ip networkapi/plugins'
+  - TESTFOLDERS='networkapi/api_environment_vip networkapi/api_equipment networkapi/api_ip'
+  - TESTFOLDERS='networkapi/api_environment networkapi/api_rack networkapi/api_vip_request networkapi/api_vlan equipamento networkapi/requisicaovips networkapi/system networkapi/usuario'
 
 sudo: required
 
@@ -38,7 +38,7 @@ script:
   - sleep 5
   - docker ps --all
   - ./scripts/travis/wait_for_containers.sh
-  - docker exec -it netapi_app ./scripts/travis/test_runner.sh networkapi/$TESTFOLDERS
+  - docker exec -it netapi_app ./scripts/travis/test_runner.sh $TESTFOLDERS
   
 after_failure:
   - docker exec ovs1 ovs-vsctl show
