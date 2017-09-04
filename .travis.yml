@@ -6,18 +6,13 @@ notifications:
 python:
   - "2.7"
 
+cache: pip
+
 branches:
   only:
     - master
     - develop
     - develop_travis
-
-env:
-  - TESTFOLDERS='networkapi/api_network'
-  - TESTFOLDERS='networkapi/api_pools'
-  - TESTFOLDERS='networkapi/ip networkapi/plugins'
-  - TESTFOLDERS='networkapi/api_environment_vip networkapi/api_equipment networkapi/api_ip'
-  - TESTFOLDERS='networkapi/api_environment networkapi/api_rack networkapi/api_vip_request networkapi/api_vlan networkapi/equipamento networkapi/requisicaovips networkapi/system networkapi/usuario'
 
 sudo: required
 
