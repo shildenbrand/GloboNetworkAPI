@@ -15,6 +15,7 @@
 # limitations under the License.
 import logging
 import re
+from networkapi.plugins.SDN.ODL.Generic import ODLPlugin
 
 log = logging.getLogger(__name__)
 
@@ -39,6 +40,12 @@ class PluginFactory(object):
             # TODO create a table in networkapi to specify wich plugin to load for
             # each equipment configuration
             if re.search('NEXUS', modelo.upper(), re.DOTALL):
+                # if 'bgp' in kwargs:
+                #     from .BGP.NXAPI.Generic import NxApiPlugin
+                #     return NxApiPlugin
+                # else:
+                #     from .Cisco.NXOS.plugin import NXOS
+                #     return NXOS
                 from .Cisco.NXOS.plugin import NXOS
                 return NXOS
             if re.search('WS-|C65', modelo.upper(), re.DOTALL):
@@ -63,16 +70,19 @@ class PluginFactory(object):
                 from .Dell.FTOS.plugin import FTOS
                 return FTOS
             if re.search('OPENDAYLIGHT', marca.upper(), re.DOTALL):
-                from .SDN.ODL.Generic import ODLPlugin
+                #from .SDN.ODL.Generic import ODLPlugin
                 return ODLPlugin
 
         raise NotImplementedError('plugin not implemented')
 
     @classmethod
-    def factory(cls, equipment):
+    def factory(cls, equipment, **kwargs):
 
         marca = equipment.modelo.marca.nome
         modelo = equipment.modelo.nome
-        plugin_name = cls.get_plugin(modelo=modelo, marca=marca)
+        plugin_name = cls.get_plugin(modelo=modelo, marca=marca, **kwargs)
+
+        if type(plugin_name)==type(ODLPlugin):
+            return plugin_name(equipment=equipment, version='BERYLLIUM')
 
         return plugin_name(equipment=equipment)
