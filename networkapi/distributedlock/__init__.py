@@ -51,6 +51,8 @@ LOCK_NEIGHBOR = 'neighbor:%s'
 LOCK_GET_IPV4_AVAILABLE = 'Ipv4_get_available_for_vip:%s'
 LOCK_GET_IPV6_AVAILABLE = 'Ipv6_get_available_for_vip:%s'
 
+LOCK_TESTS_AVAILABLE = 'cache_test:%s'
+
 
 # Adjusts settings
 from django.core.cache import cache

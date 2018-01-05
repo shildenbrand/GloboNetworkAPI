@@ -34,6 +34,7 @@ urlpatterns = patterns(
     url(api_prefix, include('networkapi.api_rack.urls')),
     url(api_prefix, include('networkapi.api_rest.urls')),
     url(api_prefix, include('networkapi.api_task.urls')),
+    url(api_prefix, include('networkapi.api_tests.urls')),
     url(api_prefix, include('networkapi.api_vip_request.urls')),
     url(api_prefix, include('networkapi.api_virtual_interface.urls')),
     url(api_prefix, include('networkapi.api_vlan.urls')),
